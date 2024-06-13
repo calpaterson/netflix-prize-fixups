@@ -1,5 +1,7 @@
 default: qualifying.csv probe.csv movie-titles.csv training-set.csv
 
+.INTERMEDIATE: training-set.tar
+
 qualifying.csv: nf_prize_dataset.tar.gz fixup-qualifying.py
 	tar xfO $< download/qualifying.txt | ./fixup-qualifying.py > $@
 
