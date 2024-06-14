@@ -1,2 +1,3 @@
 *.csv
 *.parquet
+nf_prize_dataset.tar.gz
