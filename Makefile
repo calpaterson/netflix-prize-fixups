@@ -1,4 +1,4 @@
-default: qualifying.csv probe.csv movie-titles.csv training-set.csv
+default: qualifying.csv probe.csv movie-titles.csv training-set.parquet
 
 .INTERMEDIATE: training-set.tar
 
@@ -11,7 +11,7 @@ probe.csv: nf_prize_dataset.tar.gz fixup-probe.py
 movie-titles.csv: nf_prize_dataset.tar.gz fixup-movie-titles.py
 	tar xfO $< download/movie_titles.txt | ./fixup-movie-titles.py > $@
 
-training-set.csv: training-set.tar
+training-set.parquet: training-set.tar
 	./fixup-training-set.py $< > $@
 
 training-set.tar: nf_prize_dataset.tar.gz
